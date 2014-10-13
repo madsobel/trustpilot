@@ -12,7 +12,8 @@ class Trustpilot
 	 */
 	public $url;
 	
-	public function __construct($url) {
+	public function __construct($url) 
+	{
 		$this->url = $url;
 	}
 	/**
@@ -20,7 +21,8 @@ class Trustpilot
 	 * @param [string] $regex
 	 * @param [string] $returnparam
 	 */
-	private function getData($regex, $returnparam) {
+	private function getData($regex, $returnparam) 
+	{
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->url);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -38,14 +40,16 @@ class Trustpilot
 	/**
 	 * This will get the average rating of all ratings.
 	 */
-	public function getRating() {
+	public function getRating() 
+	{
 		return $this->getData('/<span\s+class="average"\s+itemprop="ratingValue">(.*)<\/span>/', "rating");
 	}
 
 	/**
 	 * This will get the star rating count
 	 */
-	public function getStars() {
+	public function getStars() 
+	{
 		return $this->getData('/<div\s+class="star-rating size-large count-(.*)">/', "stars");
 	}
 
@@ -53,7 +57,8 @@ class Trustpilot
 	 * This will get the 20 latest ratings and return relevant info
 	 * about the review in question.
 	 */
-	public function getReviews() {
+	public function getReviews() 
+	{
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->url);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
