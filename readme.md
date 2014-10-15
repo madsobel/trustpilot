@@ -12,13 +12,13 @@ However it serves the purpose of getting some quick reviews and ratings data. Us
 	$tp = new Trustpilot("https://www.trustpilot.com/review/www.trustpilot.com");
 
 	// Average rating
-	print_r($tp->GetRating());
+	print_r($tp->getRating());
 
 	// Star Count
-	print_r($tp->GetStars());
+	print_r($tp->getStars());
 
 	// Last 20 reviews
-	print_r($tp->GetReviews());
+	print_r($tp->getReviews());
 ```
 
 ## Author
